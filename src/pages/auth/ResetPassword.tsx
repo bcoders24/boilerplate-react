@@ -39,7 +39,6 @@ const ResetPassword = () => {
   const {
     handleSubmit,
     formState: { errors },
-    getValues,
     control,
   } = useForm<IResetPassword>({
     resolver: yupResolver(resetPasswordValidation),

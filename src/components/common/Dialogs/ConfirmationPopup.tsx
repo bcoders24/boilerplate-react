@@ -17,7 +17,12 @@ const ConfirmationPopup = (props) => {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle fontSize="16px">
+      <DialogTitle
+        variant="subtitle1"
+        component="span"
+        fontWeight={500}
+        style={{ flexGrow: 1 }}
+      >
         {title}
       </DialogTitle>
       <DialogContent>

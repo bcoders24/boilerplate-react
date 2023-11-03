@@ -99,7 +99,12 @@ const ImageUploader = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography variant="h6" component="div" style={{ flexGrow: 1 }}>
+          <Typography
+            variant="subtitle1"
+            component="span"
+            fontWeight={500}
+            style={{ flexGrow: 1 }}
+          >
             Upload Image
           </Typography>
           <Controls.IconButton
