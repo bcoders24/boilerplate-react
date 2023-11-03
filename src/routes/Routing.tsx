@@ -14,16 +14,24 @@ import Login from "pages/auth/Login";
 import ForgotPassword from "pages/auth/ForgotPassword";
 import VerifyEmail from "pages/auth/VerifyEmail";
 import ResetPassword from "pages/auth/ResetPassword";
+import Loader from "src/components/common/Loader/Loader";
+import PageNotFound from "pages/errors/PageNotFound";
+
 const Profile = lazy(() => import("pages/Profile"));
 const Users = lazy(() => import("pages/Users"));
 const UserData = lazy(() => import("src/pages/user/Users"));
-// import NotFound from "pages/NotFound";
 
 const Routes = () => {
   const user = useSelector((state: StoreModel) => state.auth.user);
   return (
     <Router>
-      <Suspense fallback={<Layout>Loading...</Layout>}>
+      <Suspense
+        fallback={
+          <Layout>
+            <Loader />
+          </Layout>
+        }
+      >
         <RouteContainer>
           <Route
             element={
@@ -123,7 +131,7 @@ const Routes = () => {
             <Route path={Paths.RESET_PASSWORD} element={<ResetPassword />} />
           </Route>
 
-          <Route path={Paths.NOT_FOUND} element={<h1>Not Found</h1>} />
+          <Route path={Paths.NOT_FOUND} element={<PageNotFound />} />
         </RouteContainer>
       </Suspense>
     </Router>

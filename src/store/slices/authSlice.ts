@@ -9,7 +9,7 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  token: null || LocalStorage.getFromLocalStorage("accessToken"),
+  token: LocalStorage.getFromLocalStorage("accessToken") || null,
   user: LocalStorage.getFromLocalStorage("accessToken")
     ? DecodeToken(LocalStorage.getFromLocalStorage("accessToken"))
     : null,
@@ -27,7 +27,6 @@ const authSlice = createSlice({
     },
     setLogout: (state) => {
       LocalStorage.removeFromLocalStorage("accessToken");
-      // LocalStorage.removeFromLocalStorage("user");
       state.token = null;
       state.user = null;
     },

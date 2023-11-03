@@ -3,8 +3,8 @@ import {
   fetchBaseQuery,
   BaseQueryApi,
 } from "@reduxjs/toolkit/query/react";
-import LocalStorage from "utils/LocalStorage";
-import { setLogout, setToken } from "store/slices/authSlice";
+// import LocalStorage from "utils/LocalStorage";
+// import { setLogout, setToken } from "store/slices/authSlice";
 import { Constants } from "constants/index";
 import toast from "react-hot-toast";
 

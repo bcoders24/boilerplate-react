@@ -12,7 +12,6 @@ const onLoginStarted = async (_, { dispatch, queryFulfilled }) => {
     console.error("Error", error);
   }
 };
-
 export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
