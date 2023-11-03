@@ -14,6 +14,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       sx={{
         backgroundImage: `url(${Images.AUTH_BACKGROUND})`,
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <Box

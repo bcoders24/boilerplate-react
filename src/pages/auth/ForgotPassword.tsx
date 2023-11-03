@@ -1,7 +1,7 @@
 import { IError } from "models/general/ErrorType";
 import { Link, useNavigate } from "react-router-dom";
 import withAuthLayout from "src/hoc/withAuthLayout";
-import { InitialValues, Paths } from "constants/index";
+import { Images, InitialValues, Paths } from "constants/index";
 import { IForgotResponse } from "src/models/api/ForgotResponse";
 import { useForm, Controller } from "react-hook-form";
 import { IForgotPassword } from "src/models/data/auth";
@@ -65,11 +65,7 @@ const ForgotPassword = () => {
         className="pb-4 flex gap-x-2 items-center cursor-pointer w-max"
         to={Paths.LOGIN}
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png"
-          width={15}
-          alt="back-arrow"
-        />
+        <img src={Images.BACK_ARROW} width={15} alt="back-arrow" />
         <Typography fontSize="12px" fontWeight={500}>
           Back
         </Typography>

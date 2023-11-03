@@ -2,7 +2,7 @@ import { IError } from "models/general/ErrorType";
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, Link } from "react-router-dom";
 import withAuthLayout from "src/hoc/withAuthLayout";
-import { Paths } from "constants/index";
+import { Images, Paths } from "constants/index";
 import { Stack, Box, Typography } from "@mui/material";
 import Controls from "src/components/controls/Controls";
 import OtpInput from "src/components/common/OtpInput/OtpInput";
@@ -51,10 +51,10 @@ const VerifyEmail = () => {
         return;
       }
       // Access the data returned by the mutation
-      console.log("Login successful:", data);
-      displayNotification({ message: "Otp is not correct" });
+      console.log("Verified OTP:", data);
+      displayNotification({ message: "OTP verfied successfully" });
       // Handle the data (e.g., update the UI, navigate to another page)
-      // navigate(Paths.RESET_PASSWORD);
+      navigate(Paths.RESET_PASSWORD, { replace: true });
     } catch (error) {
       console.error("An error occurred:", error);
     }
@@ -78,20 +78,20 @@ const VerifyEmail = () => {
         className="pb-4 gap-x-2 items-center cursor-pointer flex w-max"
         to={Paths.FORGOT_PASSWORD}
       >
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png"
-          width={15}
-          alt="back-arrow"
-        />
+        <img src={Images.BACK_ARROW} width={15} alt="back-arrow" />
         <Typography fontSize="12px" fontWeight={500}>
           Back
         </Typography>
       </Link>
-      <h2 className="font-bold text-base heading">Verify Email</h2>
-      <h4 className="2xl:text-base font-semibold text-xs">OTP Verification</h4>
-      <p className="text-[12px] 2xl:text-base text-input-placeholder">
+      <Typography fontSize="16px" fontWeight={700}>
+        Verify Email
+      </Typography>
+      <Typography fontSize="12px" fontWeight={600}>
+        OTP Verification
+      </Typography>
+      <Typography variant="body1" fontSize="12px">
         Enter the OTP sent to your registered email address.
-      </p>
+      </Typography>
       <form className="flex flex-col gap-4" onSubmit={onSubmit}>
         <Box>
           <Stack mt="8px" alignItems="center">

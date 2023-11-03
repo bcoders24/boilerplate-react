@@ -149,6 +149,13 @@ const ResetPassword = () => {
               />
             )}
           />
+          <Link
+            className="ml-auto w-max text-[12px] font-medium"
+            to={Paths.LOGIN}
+            replace={true}
+          >
+            Back to Login ?
+          </Link>
           <Box mx="auto">
             <Controls.Button type="submit" disabled={isLoading}>
               Submit
