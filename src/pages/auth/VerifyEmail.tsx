@@ -3,13 +3,14 @@ import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate, Link } from "react-router-dom";
 import withAuthLayout from "src/hoc/withAuthLayout";
 import { Paths } from "constants/index";
-import { Stack, Box, Typography, CircularProgress } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import Controls from "src/components/controls/Controls";
 import OtpInput from "src/components/common/OtpInput/OtpInput";
 import { useVerifyCodeMutation } from "src/store/services/authService";
-import { IOtp } from "src/models/data/VerifyOtpModel";
+import { IOtp } from "src/models/data/auth";
 import { IOtpResponse } from "src/models/api/OtpResponse";
 import { useNotification } from "src/hooks/useNotification";
+import ButtonLoader from "src/components/common/Loader/ButtonLoader";
 
 type OtpVerificationResponseData = {
   data: IOtpResponse;
@@ -25,6 +26,10 @@ const VerifyEmail = () => {
   const [error, setError] = useState("");
 
   const onChange = (value: string) => setOtp(value);
+
+  if (!!state?.email === false) {
+    return <Navigate to={Paths.FORGOT_PASSWORD} replace />;
+  }
 
   const onSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -54,10 +59,6 @@ const VerifyEmail = () => {
       console.error("An error occurred:", error);
     }
   };
-
-  if (!!state?.email === false) {
-    return <Navigate to={Paths.FORGOT_PASSWORD} replace />;
-  }
 
   useEffect(() => {
     if (otp.split(" ")[0].length === 4) {
@@ -106,9 +107,7 @@ const VerifyEmail = () => {
         <Box mx="auto">
           <Controls.Button type="submit" disabled={isLoading}>
             Verify
-            {isLoading && (
-              <CircularProgress size={16} sx={{ marginLeft: "10px" }} />
-            )}
+            {isLoading && <ButtonLoader />}
           </Controls.Button>
         </Box>
       </form>

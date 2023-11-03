@@ -20,7 +20,7 @@ const AuthLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         padding="32px"
       >
         <Box
-          display={`${!matches ? "none" : "flex"}`}
+          display={`${matches ? "flex" : "none"}`}
           alignItems="center"
           justifyContent="center"
           borderRadius="24px"

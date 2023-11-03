@@ -18,7 +18,10 @@ export const forgotPasswordValidation = yup.object({
 });
 
 export const resetPasswordValidation = yup.object({
-  password: yup.string().required("Password is required"),
+  password: yup
+    .string()
+    .required("Password is required")
+    .min(6, "Password should be atleast 6 characters"),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), undefined], "Passwords don't match.")

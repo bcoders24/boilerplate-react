@@ -1,15 +1,23 @@
-import { IForgot } from "src/models/data/ForgotModel";
-import { ILogin } from "src/models/data/LoginModel";
+import { ILogin, IForgotPassword, IResetPassword } from "src/models/data/auth";
 
 export const loginValues: ILogin = {
   email: "",
   password: "",
 };
 
-export const forgotPasswordValues: IForgot = {
+export const forgotPasswordValues: IForgotPassword = {
   email: "",
 };
 
-const InitailValues = { loginValues, forgotPasswordValues };
+export const resetPasswordValues: IResetPassword = {
+  password: "",
+  confirmPassword: "",
+};
+
+const InitailValues = {
+  loginValues,
+  forgotPasswordValues,
+  resetPasswordValues,
+};
 
 export default InitailValues;

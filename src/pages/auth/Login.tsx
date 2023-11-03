@@ -1,4 +1,4 @@
-import { ILogin } from "models/data/LoginModel";
+import { ILogin } from "src/models/data/auth";
 import { IError } from "models/general/ErrorType";
 import { ILoginResponse } from "models/api/LoginResponse";
 import { useState } from "react";
@@ -8,13 +8,7 @@ import { Paths } from "constants/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
 import { loginValidation } from "utils/Validations";
-import {
-  CircularProgress,
-  InputAdornment,
-  Stack,
-  Typography,
-  Box,
-} from "@mui/material";
+import { InputAdornment, Stack, Typography, Box } from "@mui/material";
 import Controls from "src/components/controls/Controls";
 import IconButton from "src/components/controls/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
@@ -24,6 +18,7 @@ import { useLoginMutation } from "src/store/services/authService";
 import { useDispatch } from "react-redux";
 import { setUser } from "src/store/slices/authSlice";
 import { useNotification } from "src/hooks/useNotification";
+import ButtonLoader from "src/components/common/Loader/ButtonLoader";
 
 type LoginResponseData = {
   data: ILoginResponse;
@@ -37,7 +32,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(true);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [login, { isLoading, isError, error }] = useLoginMutation();
-  
+
   const {
     handleSubmit,
     formState: { errors },
@@ -146,9 +141,7 @@ const Login = () => {
           <Box mx="auto">
             <Controls.Button type="submit" disabled={isLoading}>
               Sign In
-              {isLoading && (
-                <CircularProgress size={16} sx={{ marginLeft: "10px" }} />
-              )}
+              {isLoading && <ButtonLoader />}
             </Controls.Button>
           </Box>
         </Stack>

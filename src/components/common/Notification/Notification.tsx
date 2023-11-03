@@ -14,7 +14,7 @@ export const Notification = (): JSX.Element => {
 
   return (
     <Snackbar
-      anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       open={notification.open}
       autoHideDuration={notification.timeout}
       onClose={handleClose}

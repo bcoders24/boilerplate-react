@@ -4,13 +4,14 @@ import withAuthLayout from "src/hoc/withAuthLayout";
 import { InitialValues, Paths } from "constants/index";
 import { IForgotResponse } from "src/models/api/ForgotResponse";
 import { useForm, Controller } from "react-hook-form";
-import { IForgot } from "src/models/data/ForgotModel";
+import { IForgotPassword } from "src/models/data/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { forgotPasswordValidation } from "src/utils/Validations";
 import { useForgotPasswordMutation } from "src/store/services/authService";
 import Controls from "src/components/controls/Controls";
-import { Box, CircularProgress, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useNotification } from "src/hooks/useNotification";
+import ButtonLoader from "src/components/common/Loader/ButtonLoader";
 
 type ForgotPasswordResponseData = {
   data: IForgotResponse;
@@ -27,13 +28,13 @@ const ForgotPassword = () => {
     formState: { errors },
     getValues,
     control,
-  } = useForm<IForgot>({
+  } = useForm<IForgotPassword>({
     resolver: yupResolver(forgotPasswordValidation),
     defaultValues: InitialValues.forgotPasswordValues,
   });
 
-  const onSubmit = async (data: IForgot) => {
-    const forgotPasswordData: IForgot = {
+  const onSubmit = async (data: IForgotPassword) => {
+    const forgotPasswordData: IForgotPassword = {
       email: data.email,
     };
     try {
@@ -101,9 +102,7 @@ const ForgotPassword = () => {
           <Box mx="auto">
             <Controls.Button type="submit" disabled={isLoading}>
               Continue
-              {isLoading && (
-                <CircularProgress size={16} sx={{ marginLeft: "10px" }} />
-              )}
+              {isLoading && <ButtonLoader />}
             </Controls.Button>
           </Box>
         </Stack>
