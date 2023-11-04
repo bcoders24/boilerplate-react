@@ -6,21 +6,13 @@ import { userSchema } from "src/utils/Validations";
 import { useEffect } from "react";
 import { UserValues } from "src/models/data/UserModal";
 import dayjs from "dayjs";
+import { InitialValues } from "src/constants";
 
 const genderItems = [
   { id: "male", title: "Male" },
   { id: "female", title: "Female" },
   { id: "other", title: "Other" },
 ];
-
-const initialValues = {
-  id: "",
-  fullName: "",
-  email: "",
-  phone: "",
-  gender: "",
-  date: null,
-};
 
 type UserFormTypes = {
   addOrEdit: (data: UserValues) => void;
@@ -29,7 +21,7 @@ type UserFormTypes = {
 };
 
 export default function UserForm({
-  addOrEdit,
+  // addOrEdit,
   recordForEdit,
   handleClose,
 }: UserFormTypes) {
@@ -40,7 +32,7 @@ export default function UserForm({
     formState: { errors },
   } = useForm<UserValues>({
     resolver: yupResolver(userSchema),
-    defaultValues: initialValues,
+    defaultValues: InitialValues.userValues,
   });
 
   const onSubmit = (data) => {

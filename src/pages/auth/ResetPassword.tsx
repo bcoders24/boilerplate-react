@@ -34,7 +34,7 @@ const ResetPassword = () => {
   const handleClickShowConfirmPassword = () =>
     setConfirmPasswordVisible((prev) => !prev);
   const navigate = useNavigate();
-  const [forgotPassword, { isLoading }] = useResetPasswordMutation();
+  const [resetPassword, { isLoading }] = useResetPasswordMutation();
 
   const {
     handleSubmit,
@@ -51,18 +51,17 @@ const ResetPassword = () => {
       confirmPassword: data.confirmPassword,
     };
     try {
-      const { data, error } = (await forgotPassword(
+      const { data, error } = (await resetPassword(
         resetPasswordData
       )) as ResetPasswordResponseData;
       if (error) {
-        console.error("Forgot password failed:", error);
+        console.error("Reset password failed:", error);
         return;
       }
-      console.log("Forgot password successful:", data);
       displayNotification({ message: "Password Updated Successfully" });
       navigate(Paths.LOGIN, { replace: true });
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Error:", error);
     }
   };
   return (

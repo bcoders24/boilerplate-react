@@ -63,7 +63,7 @@ const Login = () => {
       );
       navigate(Paths.PROFILE);
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Error:", error);
     }
   };
 

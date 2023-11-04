@@ -14,10 +14,18 @@ export const resetPasswordValues: IResetPassword = {
   confirmPassword: "",
 };
 
-const InitailValues = {
+export const userValues = {
+  id: "",
+  fullName: "",
+  email: "",
+  phone: "",
+  gender: "",
+  date: null,
+};
+
+export default {
   loginValues,
   forgotPasswordValues,
   resetPasswordValues,
+  userValues,
 };
-
-export default InitailValues;
