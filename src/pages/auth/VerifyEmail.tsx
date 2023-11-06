@@ -77,6 +77,7 @@ const VerifyEmail = () => {
       <Link
         className="pb-4 gap-x-2 items-center cursor-pointer flex w-max"
         to={Paths.FORGOT_PASSWORD}
+        replace
       >
         <img src={Images.BACK_ARROW} width={15} alt="back-arrow" />
         <Typography fontSize="12px" fontWeight={500}>

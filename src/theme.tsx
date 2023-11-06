@@ -102,12 +102,18 @@ export const theme = createTheme({
         },
       },
     },
-    MuiInputBase: {},
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          // color: "red",
+        },
+      },
+    },
     MuiRadio: {
       styleOverrides: {
         root: {
           background: "none",
-          paddingTop: "4px",
+          paddingTop: "0px",
           paddingBottom: 0,
           "&:hover": {
             background: "none",

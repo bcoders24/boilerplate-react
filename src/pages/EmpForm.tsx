@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { employeeSchema } from "src/utils/Validations";
 import { useEffect } from "react";
 import { EmployeeValues } from "src/models/data/EmployeeModel";
+import Options from "src/constants/Options";
 
 const genderItems = [
   { id: "male", title: "Male" },
@@ -80,7 +81,8 @@ export default function EmployeeForm({
               control={control}
               render={({ field }) => (
                 <Controls.Input
-                  label="Full Name"
+                  placeholder="Full name"
+                  label="Full name"
                   value={field.value}
                   onChange={field.onChange}
                   error={errors.fullName?.message}
@@ -92,6 +94,7 @@ export default function EmployeeForm({
               control={control}
               render={({ field }) => (
                 <Controls.Input
+                  placeholder="Email"
                   label="Email"
                   value={field.value}
                   onChange={field.onChange}
@@ -105,6 +108,7 @@ export default function EmployeeForm({
               render={({ field }) => (
                 <Controls.Input
                   label="Mobile"
+                  placeholder="Mobile"
                   type="number"
                   value={field.value}
                   onChange={field.onChange}
@@ -117,6 +121,7 @@ export default function EmployeeForm({
               control={control}
               render={({ field }) => (
                 <Controls.Input
+                  placeholder="City"
                   label="City"
                   value={field.value}
                   onChange={field.onChange}
@@ -144,12 +149,10 @@ export default function EmployeeForm({
                 <Controls.Select
                   label="Department"
                   value={field.value}
+                  placeholder="Select Department"
                   onChange={field.onChange}
                   error={errors.departmentId?.message}
-                  options={[
-                    { id: 1, title: "CSE" },
-                    { id: 2, title: "BSE" },
-                  ]}
+                  options={Options.EmployeeOptions}
                 />
               )}
             />
@@ -158,7 +161,7 @@ export default function EmployeeForm({
               control={control}
               render={({ field }) => (
                 <Controls.DatePicker
-                  label="Hire Date"
+                  label="Hire date"
                   value={field.value}
                   onChange={(date) => {
                     field.onChange(date);

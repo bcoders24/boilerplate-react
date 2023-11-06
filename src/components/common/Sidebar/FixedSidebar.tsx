@@ -1,11 +1,15 @@
 import { Stack } from "@mui/material";
-// import Logo from "assets/images/logo.png";
 import SidebarItem from "common/SidebarItem";
 import { SIDEBAR_ITEMS } from "utils/SidebarItems";
 
 const FixedSidebar = ({ width }) => {
   return (
-    <Stack width={width} height="100%" direction="column">
+    <Stack
+      width={width}
+      height="100%"
+      direction="column"
+      borderRight="1px solid #f1f1f1"
+    >
       {SIDEBAR_ITEMS.map((item) => (
         <SidebarItem
           key={item.id}

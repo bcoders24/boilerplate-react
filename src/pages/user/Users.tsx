@@ -1,5 +1,5 @@
 import { useState } from "react";
-import dataJSON from "components/data.json";
+import dataJSON from "pages/user/data.json";
 import { columnDef } from "./ColumnDef";
 import CustomTable from "src/components/common/Table";
 import ConfirmationPopup from "src/components/common/Dialogs/ConfirmationPopup";

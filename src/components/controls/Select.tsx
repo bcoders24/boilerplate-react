@@ -7,7 +7,19 @@ import {
 } from "@mui/material";
 
 export default function Select(props) {
-  const { name, label, value, size, error = null, onChange, options } = props;
+  const {
+    name,
+    label,
+    placeholder,
+    value,
+    size,
+    error = null,
+    onChange,
+    options,
+  } = props;
+
+  console.log(value);
+  console.log(placeholder);
 
   return (
     <FormControl variant="outlined" {...(error && { error: true })}>
@@ -18,7 +30,11 @@ export default function Select(props) {
         label={null}
         value={value}
         onChange={onChange}
+        placeholder={placeholder}
       >
+        <MenuItem disabled selected>
+          {placeholder}
+        </MenuItem>
         {options.map((item: any) => (
           <MenuItem key={item.id} value={item.id}>
             {item.title}

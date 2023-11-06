@@ -3,7 +3,7 @@ import { useState } from "react";
 import ConfirmationPopup from "src/components/common/Dialogs/ConfirmationPopup";
 import Popup from "src/components/common/Dialogs/Popup";
 import Button from "src/components/controls/Button";
-import EmployeeForm from "src/components/pages/EmpForm";
+import EmployeeForm from "src/pages/EmpForm";
 
 const Users = () => {
   const [open, setOpen] = useState<boolean>(false);
