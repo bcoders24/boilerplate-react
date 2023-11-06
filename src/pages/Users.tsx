@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useState } from "react";
 import ConfirmationPopup from "src/components/common/Dialogs/ConfirmationPopup";
 import Popup from "src/components/common/Dialogs/Popup";
@@ -5,14 +6,20 @@ import Button from "src/components/controls/Button";
 import EmployeeForm from "src/components/pages/EmpForm";
 
 const Users = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [openC, setOpenC] = useState<boolean>(false);
   return (
-    <>
-      {/* <EmployeeForm /> */}
-      <Button onClick={() => setOpen(true)}>Click</Button>
-      <Button onClick={() => setOpenC(true)}>Click</Button>
+    <Box
+      height="100%"
+      width="100%"
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Box>
+        <Button onClick={() => setOpen(true)}>Add or Edit</Button>
+        <Button onClick={() => setOpenC(true)}>Confirmation Popup</Button>
+      </Box>
       <ConfirmationPopup
         open={openC}
         onConfirm={() => {}}
@@ -23,7 +30,7 @@ const Users = () => {
       <Popup openPopup={open} onClose={() => setOpen(false)} title="My popup">
         <EmployeeForm addOrEdit={() => {}} recordForEdit={undefined} />
       </Popup>
-    </>
+    </Box>
   );
 };
 

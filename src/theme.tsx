@@ -130,12 +130,18 @@ export const theme = createTheme({
         sx: {
           fontSize: "13px",
         },
+        style: {
+          color: "grey",
+        },
       },
     },
     MuiFormLabel: {
       defaultProps: {
         sx: {
           fontSize: "13px",
+        },
+        style: {
+          color: "grey",
         },
       },
     },

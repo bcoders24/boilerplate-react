@@ -65,7 +65,8 @@ const Routes = () => {
           <Route
             element={
               <ProtectedRoute
-                isRouteAccessible={!!user && user.roles.includes("client")}
+                // isRouteAccessible={!!user && user.roles.includes("client")}
+                isRouteAccessible={!!user}
                 redirectRoute={Paths.LOGIN}
               />
             }

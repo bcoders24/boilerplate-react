@@ -1,6 +1,6 @@
 import {
   FormControl,
-  InputLabel,
+  FormLabel,
   Select as MuiSelect,
   MenuItem,
   FormHelperText,
@@ -11,15 +11,15 @@ export default function Select(props) {
 
   return (
     <FormControl variant="outlined" {...(error && { error: true })}>
-      <InputLabel>{label}</InputLabel>
+      <FormLabel htmlFor={name}>{label}</FormLabel>
       <MuiSelect
         size={size || "small"}
-        label={null}
         name={name}
+        label={null}
         value={value}
         onChange={onChange}
       >
-        {options.map((item) => (
+        {options.map((item: any) => (
           <MenuItem key={item.id} value={item.id}>
             {item.title}
           </MenuItem>
