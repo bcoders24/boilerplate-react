@@ -4,13 +4,13 @@ import { NotificationActions } from "store/slices/notificationSlice";
 export const useNotification = () => {
   const dispatch = useDispatch();
 
-  const displayNotification = (notification: string) => {
+  const displayNotification = (notification: any) => {
     dispatch(NotificationActions.addNotification(notification));
   };
 
   const clearNotification = () => {
     dispatch(NotificationActions.clearNotification());
   };
-
+ 
   return { displayNotification, clearNotification };
 };

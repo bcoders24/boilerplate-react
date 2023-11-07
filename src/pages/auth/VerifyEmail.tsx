@@ -20,6 +20,7 @@ type OtpVerificationResponseData = {
 const VerifyEmail = () => {
   const { displayNotification } = useNotification();
   const { state } = useLocation();
+  console.log(state);
   const navigate = useNavigate();
   const [verifyOtp, { isLoading }] = useVerifyCodeMutation();
   const [otp, setOtp] = useState("");
