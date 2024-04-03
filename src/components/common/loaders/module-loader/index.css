@@ -1,0 +1,17 @@
+.loader {
+  --primary: #002842;
+  font-weight: 600;
+  font-size: 24px;
+  clip-path: inset(0 1.5ch 0 0);
+  animation: l4 1s steps(4) infinite;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+.loader:before {
+  content: 'Loading...';
+}
+@keyframes l4 {
+  to {
+    clip-path: inset(0 -0.5ch 0 0);
+  }
+}

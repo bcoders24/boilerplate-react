@@ -1,0 +1,17 @@
+a.active {
+  .active {
+    display: block;
+  }
+
+  .inactive {
+    display: none;
+  }
+
+  h2 {
+    color: white !important;
+  }
+
+  h2.collapsed {
+    color: #1f1f1f !important;
+  }
+}
